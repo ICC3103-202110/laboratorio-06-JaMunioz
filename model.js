@@ -1,11 +1,12 @@
 initModel = {
-    input1: 0,
+    input1: "Y/n",
     input2: 0,
     input3: 0,
-    mount: 0,
-    tip_in_percent: 0,
-    tip: 0,
-    total: 0,
+    input4: 0,
+    leftValue: 0,
+    leftUnit: "Celsius",
+    rightValue: 32,
+    rightUnit: "Fahrenheit",
 }
 
 module.exports = {

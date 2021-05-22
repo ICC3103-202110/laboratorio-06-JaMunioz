@@ -5,7 +5,7 @@ const inquirer = require('inquirer')
 function getTitle(){
     return chalk.yellow( //color.
         figlet.textSync(
-            'Tip Calculator App', //mesage.
+            'Unit Converter App', //mesage.
             {
                 horizontalLayout: 'full',
                 font: 'Nancyj-Underlined'
@@ -15,53 +15,52 @@ function getTitle(){
 }
 
 function getTable(model){ //table.
-    const {mount} = model
-    const {tip_in_percent} = model
-    const {tip} = model
-    const {total} = model
+    const {leftValue} = model
+    const {leftUnit} = model
+    const {rightValue} = model
+    const {rightUnit} = model
     return [
-        {"Bill Amount": mount,"Tip (%)": tip_in_percent,"Tip": tip,
-        "Total": total}, 
+        {"leftValue": leftValue,"leftUnit": leftUnit,"rightValue": rightValue,
+        "rightUnit": rightUnit}, 
     ]
 }
 
 function inputForm(model){
-    const {input1} = model
     const {input2} = model
     const {input3} = model
+    const {input4} = model
     return inquirer.prompt([
         {
             name: 'input1',
-            type: 'number',
-            message: 'Bill Amount?',
-            default: input1,
+            type: 'input',
+            message: 'Left temperature is a source?',
+            default: 'Y/n',
             validate: function(value){
-                if(value >= 0){
+                if(value == 'y' || value == 'n'){
                     return true
                 } else {
-                    return 'Enter a integer greater or equal than 0.'
+                    return 'Plis enter "y" for confirm, or "n" for deny'
                 }
-            }
+            },
         },
         {
             name: 'input2',
             type: 'number',
-            message: 'Tip %?',
+            message: 'Temperature value to convert?',
             default: input2,
-            validate: function(value){
-                if(value >= 0 && value <= 100){
-                    return true
-                } else {
-                    return 'Enter a integer greater or equal than 0, and lower'
-                    +'or equal than 100.'
-                }
-            }
         },
         {
             name: 'input3',
             type: 'list',
             message: 'From?',
             default: input3,
+            choices: ['Celsius', 'Fahrenheit','Kelvin']
+        },
+        {
+            name: 'input4',
+            type: 'list',
+            message: 'To?',
+            default: input4,
             choices: ['Celsius', 'Fahrenheit','Kelvin']
         },
     ])
