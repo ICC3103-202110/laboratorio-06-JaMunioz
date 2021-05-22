@@ -6,7 +6,32 @@ function setLeftValue(input1,input2,input3,input4){
         if (input3 == input4) {
             return input2
         } else {
-            return "tranformacion respectiva"
+            if (input3 == 'Celsius'){
+                if (input4 == 'Kelvin'){
+                    return input2+273.15 
+                } 
+                else{ //input4 ==  'Fahrenheit'
+                    return (input2*9/5)+32 
+                }
+            } 
+            else{
+                if (input3 == 'Kelvin'){
+                    if (input4 == 'Celsius'){
+                        return input2-273.15  
+                    } 
+                    else{ //input4 ==  'Fahrenheit'
+                        return ((input2/273.15)*9/5) +32
+                    }
+                } 
+                else { //input3 ==  'Fahrenheit'
+                    if (input4 == 'Celsius'){
+                        return (input2-32) *5/9 
+                    } 
+                    else{ //input4 ==  'Kelvin'
+                        return ((input2-32)*5/9) + 273.15
+                    }
+                }
+            }
         }
     }
 }
@@ -22,10 +47,36 @@ function setLeftUnit(input1,input3,input4){
 
 function setRightValue(input1,input2,input3,input4){
     if (input1 == 'y'){
-        if (input3 == input4) {
+        if (input3 == input4){
             return input2
-        } else {
-            return "tranformacion respectiva"
+        }
+        else{
+            if (input3 == 'Celsius'){
+                if (input4 == 'Kelvin'){
+                    return input2+273.15
+                } 
+                else{ //input4 ==  'Fahrenheit'
+                    return (input2*9/5)+32
+                }
+            } 
+            else{
+                if (input3 == 'Kelvin'){
+                    if (input4 == 'Celsius'){
+                        return input2-273.15 
+                    } 
+                    else{ //input4 ==  'Fahrenheit'
+                        return ((input2/273.15)*9/5) +32
+                    }
+                } 
+                else { //input3 ==  'Fahrenheit'
+                    if (input4 == 'Celsius'){
+                        return (input2-32) *5/9
+                    } 
+                    else{ //input4 ==  'Kelvin'
+                        return ((input2-32)*5/9) + 273.15
+                    }
+                }
+            }
         }
     }
     else{

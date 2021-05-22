@@ -26,9 +26,10 @@ function getTable(model){ //table.
 }
 
 function inputForm(model){
-    const {input2} = model
     const {input3} = model
     const {input4} = model
+    const {rightValue} = model
+    const {leftValue} = model
     return inquirer.prompt([
         {
             name: 'input1',
@@ -45,9 +46,22 @@ function inputForm(model){
         },
         {
             name: 'input2',
-            type: 'number',
+            type: 'input',
             message: 'Temperature value to convert?',
-            default: input2,
+            default: function({input1} = model){
+                if(input1 == 'n'){
+                    return rightValue
+                } else {
+                    return leftValue
+                }
+            },
+            validate: function(value){
+                if(value >= 0 || value <= 0){
+                    return true
+                } else {
+                    return 'Enter a integer'
+                }
+            }
         },
         {
             name: 'input3',
