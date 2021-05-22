@@ -11,9 +11,9 @@ async function app(state, update, view){
         console.log(title)
         printTable(table)
         // FORM (Ask user input1 and input2)
-        const {input1,input2} = await inputForm(model) //here you put the names
+        const {input1,input2,input3} = await inputForm(model) //here you put the names
                                                       //of the ask`s in views.
-        const updatedModel = update(input1,input2, model)
+        const updatedModel = update(input1,input2,input3,model)
         state = {
             ...state,
             model: updatedModel,

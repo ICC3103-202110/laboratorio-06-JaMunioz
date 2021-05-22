@@ -1,6 +1,7 @@
 initModel = {
     input1: 0,
     input2: 0,
+    input3: 0,
     mount: 0,
     tip_in_percent: 0,
     tip: 0,

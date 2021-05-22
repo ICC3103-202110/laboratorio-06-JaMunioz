@@ -28,6 +28,7 @@ function getTable(model){ //table.
 function inputForm(model){
     const {input1} = model
     const {input2} = model
+    const {input3} = model
     return inquirer.prompt([
         {
             name: 'input1',
@@ -55,6 +56,13 @@ function inputForm(model){
                     +'or equal than 100.'
                 }
             }
+        },
+        {
+            name: 'input3',
+            type: 'list',
+            message: 'From?',
+            default: input3,
+            choices: ['Celsius', 'Fahrenheit','Kelvin']
         },
     ])
 }
